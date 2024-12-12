@@ -1,0 +1,29 @@
+Objetivo do projeto:
+    Construir uma rotina que consuma uma API(NASA POWER) para coleta de dados climáticos de uma determinada região.
+
+Linguagem:
+    Para tal foi usada a Linguagem Python devido sua simplicidade e vasta opções de bibliotecas.
+    bibliotecas utilizadas:
+        pandas: Para a construção do data frame com os dados
+        IPython: Para mostrar a tabela de forma mais elegante
+    
+Parâmetros utilizados:
+    Latitude: 22.7344
+    Longitude: 47.6480
+        Latitude e longitude correspondentes a cidade de Piracicaba-SP
+    temperatura_minima: Para avaliar a temperatura mínima, foi utilizado o parâmetro "TS_MIN"
+    temperatura_media: Para avaliar a temperatura média, foi utilizado o parâmetro "TS"
+    temperatura_maxima: Para avaliar a temperatura máxima, foi utilizado o parâmetro "TS_MAX"
+    precipitacao: Para avaliar a precipitação, foi utilizado o parâmetro "PW"
+    Data de ínicio(YYYY/MM/DD): 2024/01/01
+    Data de fim(YYYY/MM/DD): 2024/02/01
+
+
+Glossário: 
+    TS_MIN: Earth Skin Temperature Minimum - The minimum hourly earth skin temperature in the period of interest.
+    TS: Earth Skin Temperature - The average temperature at the earth's surface.
+    TS_MAX: Earth Skin Temperature Maximum - The maximum hourly earth skin temperature in the period of interest.
+    PW: Precipitable Water - The total atmospheric water vapor contained in a vertical column of the atmosphere.
+    OBS: Valores utilizados seguindo a coleta "Daily" de dados da API.
+    Parâmetros: https://power.larc.nasa.gov/#resources
+
