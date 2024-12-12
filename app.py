@@ -1,7 +1,7 @@
 import requests
 
 ##API
-api_url = "https://power.larc.nasa.gov/api/temporal/daily/point?start=20240101&end=20240201&latitude=22.7344&longitude=47.6480&community=re&parameters=TS_MIN%2CTS_MAX%2CTS%2CPW&format=json&user=victorrocha&header=true&time-standard=utc"
+api_url = "https://power.larc.nasa.gov/api/temporal/daily/point?start=20220501&end=20220531&latitude=-22.7344&longitude=-47.6480&community=re&parameters=TS_MIN%2CTS%2CTS_MAX%2CPW&format=json&user=victorrocha&header=true&time-standard=utc"
 request = requests.get(api_url)
 
 data = request.json()
@@ -22,3 +22,9 @@ coordinates = data_geometry['coordinates']
 ##Parametros requisitados
 data_properties = data['properties']
 data_parameters = data_properties['parameter']
+
+##Extraindo os valores de cada parametro para uma lista
+values_temp_min =  list(data_parameters['TS_MIN'].values())
+values_temp_max = list(data_parameters['TS_MAX'].values())
+values_temp_avarage = list(data_parameters['TS'].values())
+values_preciptation = list(data_parameters['PW'].values())
