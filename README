@@ -1,29 +1,71 @@
-Objetivo do projeto:
-    Construir uma rotina que consuma uma API(NASA POWER) para coleta de dados climáticos de uma determinada região.
+# Documentação do Projeto: Coleta de Dados Climáticos da NASA POWER
 
-Linguagem:
-    Para tal foi usada a Linguagem Python devido sua simplicidade e vasta opções de bibliotecas.
-    bibliotecas utilizadas:
-        pandas: Para a construção do data frame com os dados
-        IPython: Para mostrar a tabela de forma mais elegante
-    
-Parâmetros utilizados:
-    Latitude: 22.7344
-    Longitude: 47.6480
-        Latitude e longitude correspondentes a cidade de Piracicaba-SP
-    temperatura_minima: Para avaliar a temperatura mínima, foi utilizado o parâmetro "TS_MIN"
-    temperatura_media: Para avaliar a temperatura média, foi utilizado o parâmetro "TS"
-    temperatura_maxima: Para avaliar a temperatura máxima, foi utilizado o parâmetro "TS_MAX"
-    precipitacao: Para avaliar a precipitação, foi utilizado o parâmetro "PW"
-    Data de ínicio(YYYY/MM/DD): 2024/01/01
-    Data de fim(YYYY/MM/DD): 2024/02/01
+## Objetivo
+Construir uma rotina em Python para consumir a API **NASA POWER** e coletar dados climáticos de uma região específica, retornando um DataFrame com as informações organizadas.
 
+## Linguagem e Bibliotecas Utilizadas
+- **Linguagem**: Python, devido à simplicidade e ampla variedade de bibliotecas.
+- **Bibliotecas**:
+  - `pandas`: Para manipulação e organização dos dados em DataFrame.
+  - `IPython.display`: Para exibição mais elegante do DataFrame no terminal ou notebook.
 
-Glossário: 
-    TS_MIN: Earth Skin Temperature Minimum - The minimum hourly earth skin temperature in the period of interest.
-    TS: Earth Skin Temperature - The average temperature at the earth's surface.
-    TS_MAX: Earth Skin Temperature Maximum - The maximum hourly earth skin temperature in the period of interest.
-    PW: Precipitable Water - The total atmospheric water vapor contained in a vertical column of the atmosphere.
-    OBS: Valores utilizados seguindo a coleta "Daily" de dados da API.
-    Parâmetros: https://power.larc.nasa.gov/#resources
+## Parâmetros da API
+Os dados foram coletados para a cidade de **Piracicaba-SP**, utilizando os seguintes parâmetros:
+- **Latitude**: `-22.7344`
+- **Longitude**: `-47.6480`
+- **Período de Coleta**:
+  - Data de início: `2022/01/05`
+  - Data de fim: `2022/31/05`
+- **Parâmetros**:
+  - `TS_MIN`: Temperatura mínima (°C).
+  - `TS`: Temperatura média (°C).
+  - `TS_MAX`: Temperatura máxima (°C).
+  - `PW`: Precipitação acumulada (mm).
 
+### Glossário
+- **TS_MIN**: Temperatura mínima da superfície terrestre em um intervalo diário.
+- **TS**: Temperatura média diária da superfície terrestre.
+- **TS_MAX**: Temperatura máxima da superfície terrestre em um intervalo diário.
+- **PW**: Água precipitável total na coluna vertical da atmosfera.
+
+> **Nota**: Os dados foram coletados no formato 'Daily' conforme especificado na documentação da API. Mais detalhes: [NASA POWER | Docs](https://power.larc.nasa.gov/docs/tutorials/api-getting-started/) OU  Também: (https://power.larc.nasa.gov/#resources).
+
+---
+
+## Estrutura do Projeto
+
+### Arquivo: `app.py`
+Responsável por:
+- Consumir a API **NASA POWER** utilizando uma URL predefinida.
+- Extrair e tratar os dados recebidos, incluindo:
+  - Parâmetros climáticos.
+  - Datas de início e fim do período analisado.
+  - Coordenadas da localização.
+
+### Arquivo: `data_frame.py`
+Responsável por:
+- Gerar um DataFrame a partir dos dados extraídos por `app.py`.
+- Organizar as informações em um formato tabular:
+  - Coluna 1: `dia_da_observacao` (data).
+  - Outras colunas: `TS_MIN`, `TS`, `TS_MAX`, `PW`.
+- Exibir os dados de maneira mais clara utilizando a biblioteca `IPython.display`.
+
+---
+
+## Como Executar
+
+1. **Configurar o Ambiente Virtual**:
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # No Windows: venv\Scripts\activate
+
+2. **Instalar Dependências: 
+    ```bash
+    pip install pandas IPyton.display requsts
+
+3. **Eecutar o Programa:
+    ```bash
+    python data_frame.py
+
+4. **Visualizar os Resultados:
+    A saída será exibida no terminal ou no console Python.
